@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}PyAcademy — Урок {{ lesson.number }}{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+
+<input type="hidden" id="django-lesson-number" value="{{ lesson.number }}">
+{{ quizzes_json|json_script:"quizzes-data" }}
+
+<div class="lesson-page-wrapper">
+    <div class="figma-canvas">
+        {% for block in lesson.blocks.all %}
+            <div class="lesson-block {{ block.block_layout }}">
+                <h2 class="figma-title">{{ block.block_title }}</h2>
+                <div class="block-content-wrapper">
+                    {% if block.block_image %}
+                        <img src="{{ block.block_image.url }}" class="figma-img" alt="Decor">
+                    {% endif %}
+                    <div class="figma-text">
+                        {{ block.block_text|safe|linebreaks }}
+                    </div>
+                </div> </div> {% empty %}
+            <p class="empty-lesson-text">Контент для цього уроку ще завантажується...</p>
+        {% endfor %} </div> </div>
+<div class="course-layout">
+    <aside class="sidebar">
+        <h3>Зміст курсу</h3>
+        {% for l in all_lessons %}
+            <div class="nav-item {% if l.number == lesson.number %}active{% endif %}">
+                {% if l.id in completed_ids or l.number == 1 or l.number == lesson.number %}
+                    <a href="{% url 'lesson_detail' l.number %}">
+                        Урок {{ l.number }}: {{ l.title }}
+                        {% if l.id in completed_ids %} ✅ {% endif %}
+                    </a>
+                {% else %}
+                    <span class="locked">🔒 Урок {{ l.number }}: {{ l.title }}</span>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </aside>
+
+    <main class="content">
+        <h1>{{ lesson.title }}</h1>
+        <div class="lesson-body">
+            {{ lesson.content|safe }}
+        </div>
+
+        </main>
+</div>
+</div>
+<div class="course-banner-container">
+    <a href="javascript:void(0);" onclick="openQuiz()">
+    <img src="{% static 'images/course_banner_bg.png' %}" alt="Маскот Python" class="banner-mascot-img">
+</a>
+
+    <div class="overall-progress-card">
+    <div class="global-progress-bar">
+        <div class="global-progress-fill" style="width: {{ progress_percentage }}%;"></div>
+    </div>
+</div>
+
+
+    <div class="timeline-labels-container">
+        <span class="step-label {% if current_step >= 1 %}current-active{% endif %}">Урок 1</span>
+        <span class="step-label {% if current_step >= 2 %}current-active{% endif %}">Тест 1</span>
+        <span class="step-label {% if current_step >= 3 %}current-active{% endif %}">Урок 2</span>
+    </div>
+</div>
+</div>
+
+
+
+<div id="quizModal" class="modal-overlay">
+    <div class="test-container">
+
+        <main class="test-window">
+            <h1 class="test-header">Тести до уроку {{ lesson.number }}</h1>
+             <div class="banner-mascot-wrapper">
+    <a href="javascript:void(0);" onclick="openQuiz()">
+        <img src="{% static 'images/snake_mascot.png' %}" alt="Маскот Python" class="banner-mascot-img">
+    </a>
+</div>
+            <div id="quiz-container">
+                <p class="question-title" id="question-text"></p>
+                <div id="options-container">
+    <button class="option-btn opt-a" style="display: none;"></button>
+    <button class="option-btn opt-b" style="display: none;"></button>
+    <button class="option-btn opt-v" style="display: none;"></button>
+    <button class="option-btn opt-g" style="display: none;"></button>
+</div>
+            </div>
+            <div>
+            <div class="footer-buttons-wrapper">
+    <button class="action-btn-submit" id="submit-btn" onclick="checkFinalAnswer()">Відповісти</button>
+
+    <form id="next-lesson-form" action="..." method="post" style="display: none;">
+        <button type="submit" id="next-question-btn" class="next-btn">Далі</button>
+    </form>
+</div>
+        </main>
+</div>
+            <div id="successModal" class="modal-overlay">
+    <div class="success-frame">
+        <h1 class="success-title-top">Молодець! Ти успішно пройшов(ла) тест {{ lesson.number }}</h1>
+        <div class="success-bg-art">
+            <img src="{% static 'images/snake_success.png' %}" alt="Mascot Success">
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar-fill"></div>
+            <div class="progress-circle">
+                <span class="check-mark">✓</span>
+            </div>
+        </div>
+        <div class="modal-actions">
+            {% if next_lesson %}
+                <button class="btn-next-lesson" onclick="window.location.href='{% url 'lesson_detail' next_lesson.number %}'">Наступний урок</button>
+            {% else %}
+                <button class="btn-next-lesson" onclick="window.location.href='/'">Завершити курс</button>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}PyAcademy — Реєстрація{% endblock %}
+
+{% block content %}
+<div class="auth-container" style="max-width: 400px; margin: 60px auto; padding: 30px; background: white; border: 2px solid #e2e8f0; border-radius: 16px; font-family: 'Inter', sans-serif;">
+    <h2 style="text-align: center; margin-bottom: 20px; color: #1a202c;">Створити акаунт 🚀</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {% if messages %}
+    <div class="messages" style="margin-bottom: 15px;">
+        {% for message in messages %}
+            <div style="padding: 10px; border-radius: 8px; margin-bottom: 10px;
+                        {% if message.tags == 'error' %}background: #fee2e2; color: #991b1b;{% else %}background: #d1fae5; color: #065f46;{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #4a5568;">Логін (Username):</label>
+            <input type="text" name="username" required style="width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 8px; box-sizing: border-box;">
+        </div>
+        <div style="margin-bottom: 15px;">
+    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #4a5568;">Email:</label>
+    <input type="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 8px; box-sizing: border-box;">
+</div>
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #4a5568;">Пароль:</label>
+            <input type="password" name="password" required style="width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 8px; box-sizing: border-box;">
+        </div>
+        <button type="submit" style="width: 100%; padding: 12px; background: #52c41a; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Зареєструватися</button>
+    </form>
+
+    <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #718096;">
+        Вже маєш акаунт? <a href="{% url 'login' %}" style="color: #52c41a; font-weight: bold; text-decoration: none;">Увійти</a>
+    </p>
+</div>
+{% endblock %}

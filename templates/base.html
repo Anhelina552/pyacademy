@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PyAcademy{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Abhaya+Libre:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="logo-container">
+            <a href="/"><img src="{% static 'images/logo.svg' %}" alt="PyAcademy" class="main-logo"></a>
+        </div>
+        <nav class="nav-buttons">
+    <a href="/" class="nav-btn">Курси</a>
+    <a href="{% url 'dictionary' %}" class="nav-btn">Словник</a>
+    <a href="{% url 'progress' %}" class="nav-btn">Прогрес</a>
+
+    {% if user.is_authenticated %}
+        <span class="nav-user-name" style="color: #4a5568; font-weight: bold; margin-right: 10px;">👋 {{ user.username }}</span>
+        <a href="{% url 'logout' %}" class="nav-btn" style="color: #ff4d4f;">Вийти</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="nav-btn">Увійти</a>
+        <a href="{% url 'register' %}" class="nav-btn" style="background: #52c41a; color: white; padding: 5px 15px; border-radius: 6px;">Реєстрація</a>
+    {% endif %}
+</nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

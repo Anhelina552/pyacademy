@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}PyAcademy — Словник термінів{% endblock %}
+
+{% block content %}
+<div class="dictionary-page-wrapper">
+    <div class="dictionary-header">
+        <h1 class="dictionary-main-title">📚 Словник Python-розробника</h1>
+        <p class="dictionary-subtitle">Твоя інтерактивна шпаргалка: швидко згадуй складні терміни та команди!</p>
+    </div>
+
+    <div class="dictionary-grid">
+        {% for term in terms %}
+            <div class="dictionary-card">
+                <div class="term-badge">{{ term.category }}</div>
+                <h3 class="term-word"><code>{{ term.word }}</code></h3>
+                <p class="term-definition">{{ term.definition|linebreaksbr }}</p>
+            </div>
+        {% empty %}
+            <div class="empty-dictionary">
+                <p>Словник поки що порожній. Зайди в адмінку Django та додай перші терміни! 🚀</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

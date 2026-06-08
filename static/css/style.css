@@ -1,0 +1,1413 @@
+/* --- ОСНОВНІ НАЛАШТУВАННЯ ТА ШРИФТИ --- */
+@import url('https://fonts.googleapis.com/css2?family=Maitree:wght@600;700&family=Jost:wght@400;600;700&family=Inter:wght@400;700&display=swap');
+
+:root {
+    --py-blue: #3776AB;
+    --py-yellow: #FFDE57;
+}
+
+body {
+    margin: 0;
+    font-family: 'Abhaya Libre', serif;
+    background-color: #f5f8fa;
+}
+/* --- ШАПКА ТА НАВІГАЦІЯ --- */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.main-logo {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s;
+}
+
+.main-logo:hover { transform: scale(1.05); }
+
+.nav-buttons {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--py-blue);
+    font-weight: 600;
+}
+
+/* --- ГОЛОВНА СТОРІНКА (КАТАЛОГ) --- */
+.hero-banner {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f5f8fa 0%, #e1e9ef 100%);
+}
+
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(3, 350px);
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+.course-card {
+    background: #6391A8;
+    height: 520px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.course-card:hover { transform: translateY(-10px); }
+
+.image-wrapper {
+    width: 100%;
+    height: 250px;
+    background: #d9e4ec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.course-banner {
+    width: 100%;
+    max-width: 650px;
+    margin: 40px auto;
+    cursor: pointer;
+    display: block;
+}
+
+.course-banner img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.btn-start {
+    margin-top: auto;
+    margin-bottom: 35px;
+    align-self: center;
+    width: 190px;
+    height: 48px;
+    background: var(--py-blue);
+    color: var(--py-yellow);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 19px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+/* --- СТОРІНКА УРОКУ --- */
+.lesson-frame {
+    background: #F8F9FF;
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+.lesson-navbar {
+    background: #F6F5B4;
+    height: 92px;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.lesson-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.lesson-title {
+    font-family: 'Maitree', serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #1F3B4D;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.lesson-text, .lesson-content {
+    font-family: 'Maitree', serif;
+    font-size: 26px !important;
+    line-height: 1.7 !important;
+    color: #1F3B4D;
+    max-width: 900px;
+    margin: 0 auto 30px;
+}
+
+.lesson-text b, .lesson-text strong {
+    font-weight: 700;
+    color: #000;
+}
+
+.lesson-hero-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain; /* Картинка влізе повністю */
+    background: #F8F9FF;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    display: block;
+}
+.lesson-flex-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.lesson-side-img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.lesson-nav-btn {
+    background: var(--py-blue);
+    color: var(--py-yellow);
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Abhaya Libre', serif;
+    font-weight: 600;
+    font-size: 24px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 15px;
+}
+.test-header {
+    position: absolute;
+    width: 100%;
+    top: 45px;
+    text-align: center;
+    font-family: 'Maitree', serif;
+    font-size: 32px;
+    color: #2976AB;
+    margin: 0;
+}
+/* --- МОДАЛЬНЕ ВІКНО ТА ТЕСТ --- */
+#quizModal, #successModal {
+    display: none; /* JS мінятиме це на "flex" */
+    position: fixed;
+    z-index: 99999; /* Поверх усього сайту, включаючи шапку */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Спільний контейнер-обгортка для тримання пропорцій сітки */
+.test-container {
+    position: relative;
+    width: 730px;
+    height: 500px;
+}
+.modal-overlay {
+    display: none; /* Приховано за замовчуванням */
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Темний напівпрозорий фон */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Центрування контенту тесту всередині модалки */
+.modal-overlay .test-screen-container {
+    position: relative;
+    width: 730px;
+    height: 500px;
+    background: transparent;
+}
+
+/* Твоє вікно з Figma (Frame 1) */
+.quiz-frame, .test-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 730px;
+    height: 500px;
+    background: #F8F9FF;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+    /* КРИТИЧНО: Дозволяємо змії вилазити за межі плашки, як у Figma */
+    overflow: visible !important;
+    z-index: 10; /* Базовий шар */
+}
+.quiz-title, .test-header {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    top: 40px;
+    font-family: 'Maitree', serif;
+    font-size: 32px;
+    color: #2976AB;
+    margin: 0;
+    z-index: 20;
+}
+/* БІЛЕ ВІКНО (Основа фрейму) */
+.success-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 730px;
+    height: 500px;
+    background: #F8F9FF;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    overflow: visible !important;
+    z-index: 10;
+}
+
+.success-message {
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    left: 0;
+    text-align: center;
+    font-family: 'Maitree', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #2976AB;
+    z-index: 20;
+}
+#successModal .success-frame {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+
+    width: 760px !important;
+    height: 540px !important;
+    background: #e1f0fa !important; /* Блакитний фон як у Figma */
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+
+    /* Флекс вирівнює ВСІ елементи суворо по центру в стовпчик */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important; /* Рівномірно розподіляє верх-середину-низ */
+
+    box-sizing: border-box !important;
+    padding: 50px 40px !important; /* Внутрішні відступи від країв */
+    overflow: visible !important;
+}
+.success-title-top {
+    position: relative !important;
+    z-index: 10 !important;
+    font-size: 26px !important;
+    font-weight: bold !important;
+    color: #2b5e7a !important;
+    text-align: center !important;
+    margin: 0 !important;
+}
+
+/* 2. Велика ілюстрація зі змією як ФОН (по центру вікна) */
+.success-bg-art {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; /* Чітко по центру картки */
+    width: 80% !important;  /* Розмір змії */
+    height: auto !important;
+    z-index: 1 !important;   /* Задній план під кнопками */
+    pointer-events: none !important;
+}
+
+.success-bg-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+}
+/* Заголовок зверху */
+
+/* --- ЗМІЯ: НАЙВИЩИЙ ШАР ПОВЕРХ ВІКНА ТА КНОПОК --- */
+
+.snake-mascot {
+    position: absolute !important;
+    /* Задаємо компактні фізичні розміри фігури змії */
+    width: 280px !important;
+    height: 280px !important;
+
+    /* ЦЕНТРУВАННЯ ПО ГОРИЗОНТАЛІ */
+    left: 50% !important; /* Ставимо початок картинки по центру */
+    transform: translateX(-50%) !important; /* Зсуваємо її назад на половину ширини (160px), щоб відцентрувати ідеально */
+
+    /* РОЗТАШУВАННЯ ЗВЕРХУ */
+    top: -226px !important; /* Піднімаємо змію вгору, щоб вона "визирала" над вікном */
+
+    /* ШАРИ ТА ПОВЕДІНКА */
+    z-index: 100 !important; /* Залізобетонно поверх білого вікна, але під темним фоном, щоб темний фон її обрізав зверху, якщо треба (як на image_3.png) */
+    pointer-events: none !important; /* Кліки пролітають наскрізь, кнопки під нею (якщо вона їх перекриває) натискаються */
+}
+
+.snake-mascot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important; /* Картинка охайно вписується в 320px */
+}
+
+/* ЗМІЯ НА ЕКРАНІ УСПІХУ (робимо так само по центру) */
+#successModal .test-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* --- ЗМІЯ УСПІХУ: ФОН БУДЕ ФОТО (image_3.png) --- */
+#successModal .snake-mascot {
+    position: relative;
+    z-index: 100;
+    margin-bottom: -55px; /* Наплив на біле вікно */
+
+    /* ІДЕАЛЬНЕ ЦЕНТРУВАННЯ ФІГУРИ ЗМІЇ НАВКОЛО СЕБЕ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* ФОНОМ ДЛЯ ПРОЗОРого фонУ ЗМІЇ БУДЕ ФОТО (blur) */
+    /*backdrop-filter: blur(10px); !* Цей рядок замилює фото ПІД прозорим фоном змії *!*/
+    /* ! Важливо: якщо backdrop-filter не працює, розкоментуйте наступний рядок,
+       щоб додати легкий напівпрозорий фон для кращої видимості */
+    /* background-color: rgba(255, 255, 255, 0.1); */
+
+    width: 320px; /* Компактні розміри фігури */
+    height: 320px;
+    border-radius: 50%; /* Створюємо кругову область замилювання */
+
+    /* Щоб темний фон (modal-overlay) не обрізав змію зверху */
+    top: -150px !important;
+}
+
+#successModal .snake-mascot img {
+    height: 190px;
+    width: auto;
+    display: block;
+    object-fit: contain !important;
+    /* Тінь, щоб змія здавалася об'ємною над вікном */
+    filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.15));
+}
+.snake-container {
+    position: absolute !important;
+    width: 320px !important;
+    height: 320px !important;
+    left: 50% !important;
+    top: -150px !important;
+    transform: translateX(-50%) !important;
+    z-index: 100 !important;
+    pointer-events: none !important;
+}
+
+.snake-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+}
+#successModal .progress-container {
+    position: relative !important;
+    z-index: 10 !important;
+
+    /* Скидаємо старі Figma координати, які тягнули її вбік */
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+
+    width: 380px !important;
+    height: 24px !important;
+    background: #eef5fa !important;
+    border: 1.5px solid #2b5e7a !important;
+    border-radius: 12px !important;
+
+    /* Автоматичний марджин виштовхує її донизу, але тримає центр */
+    margin: auto 0 20px 0 !important;
+    overflow: visible !important;
+}
+
+/* Зелене заповнення шкали */
+.progress-bar-fill {
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, #61ce7b 0%, #3a8a4e 100%) !important;
+    border-radius: 10px !important;
+}
+
+/* Коло з галочкою */
+/* Коло з білою галочкою — ПРИБИТЕ ДО ПРАВОГО КРАЮ ШКАЛИ */
+#successModal .progress-circle {
+    position: absolute !important;
+
+    /* Прив'язуємо до крайньої правої точки шкали */
+    right: 0 !important;
+    left: auto !important; /* Скидаємо старі лефти, якщо вони десь прописані */
+
+    /* Центруємо по вертикалі (50%), а через translateX(50%) висуваємо
+       коло назовні рівно наполовину, щоб воно сіло акуратно на фініш */
+    top: 50% !important;
+    transform: translate(50%, -50%) !important;
+
+    /* Розміри */
+    width: 32px !important;
+    height: 32px !important;
+
+    /* Дизайн */
+    background: #56c46f !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 50% !important;
+
+    /* Центрування самої текстової галочки всередині кола */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
+    z-index: 20 !important;
+}
+#successModal .check-mark {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+}
+/* --- ТЕКСТ ТА ЕЛЕМЕНТИ (ПІД ЗМІЄЮ, АЛЕ АКТИВНІ) --- */
+.test-header {
+    position: absolute;
+    width: 100%;
+    top: 45px;
+    text-align: center;
+    font-family: 'Maitree', serif;
+    font-size: 32px;
+    color: #2976AB;
+    margin: 0;
+    z-index: 20;
+}
+
+.question-text, .question-title {
+    position: absolute;
+    width: 680px;
+    left: 25px;
+    top: 120px;
+    font-family: 'Maitree', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1F3B4D;
+    text-align: center;
+    line-height: 1.3;
+    margin: 0;
+    z-index: 20;
+}
+
+/* Кнопки відповідей */
+.option-rect, .option-btn {
+    position: absolute;
+    width: 179px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 9px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: 'Maitree', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #000000;
+
+    /* Шари кнопок активні та лежать під змією */
+    z-index: 20;
+    pointer-events: auto !important;
+}
+
+.option-rect:hover, .option-btn:hover {
+    background: #E8EDFF;
+}
+
+/* Точні координати з Figma */
+.rect-1, .opt-a { left: 83px; top: 220px; }
+.rect-2, .opt-b { left: 83px; top: 300px; }
+.rect-3, .opt-v { left: 479px; top: 220px; }
+.rect-4, .opt-g { left: 479px; top: 300px; }
+.submit-btn {
+    position: absolute;
+    width: 219px;
+    height: 40px;
+    left: 255px;
+    top: 415px;
+    background: #2976AB;
+    border-radius: 5px;
+    border: none;
+    color: #FEEF9B;
+    font-family: 'Maitree', serif;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s;
+
+    z-index: 20;
+    pointer-events: auto !important;
+}
+
+.submit-btn:hover{
+    background: #1e5a85;
+}
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 35px;
+    cursor: pointer;
+    color: #2976AB;
+    z-index: 30;
+}
+/* --- ІДЕАЛЬНЕ ЦЕНТРУВАННЯ ТЕКСТУ ВСЕРЕДИНІ КНОПОК --- */
+
+/* --- НАДІЙНЕ ЦЕНТРУВАННЯ ТА ВІДОБРАЖЕННЯ КНОПОК --- */
+
+/* --- КОРЕКТНІ СТИЛІ ДЛЯ ОБОХ КНОПОК --- */
+.test-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Стиль для кнопки "Відповісти" */
+.action-btn-submit {
+    width: 220px !important;
+    height: 45px !important;
+    position: static !important; /* ВАЖЛИВО: static замість absolute */
+    background: #2b75a5 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    margin-bottom: 10px !important;
+}
+
+.action-btn-submit:hover {
+    background: #235d84 !important;
+}
+
+/* Кнопка "Далі" — стає статичною і не літає */
+
+
+
+/* Примусово виправляємо положення кнопки всередині форми */
+
+/* Прибираємо absolute з самої кнопки, бо воно вже є у форми */
+
+/* --- ЕКРАН УСПІХУ (Додаткові елементи) --- */
+
+.progress-wrapper {
+    position: absolute;
+    width: 333px;
+    height: 27px;
+    left: 196px;
+    top: 380px;
+    background: linear-gradient(90deg, #61CE7B 0%, #31683E 100%);
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 20;
+}
+
+.progress-container {
+    width: 100%;
+    background: transparent; /* Фон прозорий */
+    border: none;            /* Ніяких рамок */
+    padding: 0;              /* Ніяких внутрішніх відступів */
+    margin: 20px 0;
+}
+
+    /* Зелений градієнт фону */
+    background: linear-gradient(90deg, #61CE7B 0%, #31683E 100%);
+
+    /* Оформлення */
+    border: 1px solid #000000;
+    border-radius: 5px; /* Закруглені кути */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 15;
+    overflow: visible; /* Щоб галочка не обрізалася */
+}
+
+/* Коло з галочкою (Ellipse 1) */
+.progress-circle {
+    position: absolute;
+    width: 38px; /* Чітко за розміром Figma */
+    height: 38px;
+
+    /* Розташування: має бути в правому кінці шкали */
+    left: 88.5% !important; /* Трохи відступаємо від правого краю (333px) */
+    top: 50% !important;
+    transform: translateY(-50%) !important; /* Центруємо по вертикалі відносно шкали (27px) */
+
+    /* Оформлення: зелене коло з білою рамкою */
+    background: #56C46F;
+    border: 2px solid #FFFFFF; /* Біла рамка, як на image_3.png */
+    border-radius: 50%; /* Створюємо коло */
+
+    /* Центрування галочки всередині кола */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 16;
+}
+.progress-check {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.check-mark {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF !important; /* Білий колір галочки */
+}
+
+/* Кнопка "Наступний урок" */
+xt-btn-final {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    height: 45px;
+    background: #2976AB;
+    color: #FEEF9B;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Maitree', serif;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    transition: transform 0.2s;
+}
+.btn-next-lesson {
+    position: relative !important;
+    z-index: 10 !important;
+
+    /* Скидаємо старі абсолютні координати, щоб кнопка не летіла вгору */
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    width: 240px !important;
+    height: 46px !important;
+    background: #2b75a5 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+
+    font-family: inherit;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 10px rgba(43, 117, 165, 0.3) !important;
+
+    margin: 0 0 10px 0 !important; /* Фіксований відступ знизу вікна */
+    transition: background 0.2s ease;
+}
+
+.btn-next-lesson:hover {
+    background: #20597e !important;
+}
+
+
+
+/* Фігурки / Декор */
+.fig-icon, .icon {
+    position: absolute;
+    font-family: 'Maitree', serif;
+    font-weight: bold;
+    z-index: 15;
+    pointer-events: none;
+}
+.fig-brackets { left: 25%; top: 5%; font-size: 48px; color: #5B8FB9; transform: rotate(-11deg); }
+.fig-tags { left: 5%; top: 15%; font-size: 35px; color: #FFD34D; transform: rotate(-37deg); }
+.fig-braces { right: 8%; top: 25%; font-size: 40px; color: #5B8FB9; transform: rotate(26deg); }
+/* Відкриваємо видимість для абсолютно всіх батьківських контейнерів модалки */
+.modal-overlay,
+.test-screen-container,
+.test-container,
+.test-window,
+.quiz-frame {
+    overflow: visible !important;
+}
+/* Базове налаштування полотна */
+.figma-canvas {
+    width: 1659px;
+    min-height: 100vh;
+    background: #F8F9FF;
+    margin: 0 auto;
+    padding: 120px 0; /* Відступ зверху під шапку навігації */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px; /* Відстань між різними блоками уроку */
+    box-sizing: border-box;
+}
+
+/* Спільні стилі для текстів з вашої Figma */
+.figma-title {
+    font-family: 'Maitree', serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 66px;
+    color: #000000;
+    margin: 0 0 30px 0; /* Відступ під заголовком */
+}
+
+.figma-text {
+    font-family: 'Maitree', serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 53px;
+    color: #000000;
+}
+
+/* Загальний контейнер для кожного окремого блоку */
+.lesson-block {
+    width: 1349px; /* Стандартна ширина контенту з вашої Figma */
+    display: flex;
+    flex-direction: column;
+}
+
+.block-content-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 50px; /* Відступ між картинкою та текстом */
+}
+
+/* ==========================================================================
+   ЛОГІКА МАКЕТІВ (КЕРУЄТЬСЯ З АДМІНКИ)
+   ========================================================================== */
+
+/* 1. Стандартний (Текст на всю ширину) */
+.layout-standard .block-content-wrapper {
+    flex-direction: column;
+}
+.layout-standard .figma-img {
+    display: none; /* Якщо випадково завантажили фото, воно не покажеться */
+}
+
+/* 2. Картка автора (Фото ЛІВОРУЧ, текст ПРАВОРУЧ) */
+.layout-author .block-content-wrapper {
+    flex-direction: row; /* Картинка перша (ліворуч), текст другий (праворуч) */
+    align-items: flex-start;
+}
+.layout-author .figma-img {
+    width: 304px;   /* Точні розміри з Figma для фото Гвідо */
+    height: 492px;
+    object-fit: cover;
+    border-radius: 9px;
+    flex-shrink: 0; /* Забороняє картинці стискатися */
+}
+.layout-author .figma-text {
+    flex-grow: 1; /* Текст займає весь вільний простір праворуч */
+}
+
+/* 3. Історичний блок (Текст ліворуч, фото праворуч) */
+.layout-history .block-content-wrapper {
+    flex-direction: row-reverse; /* Дзеркально: текст стає ліворуч, фото — праворуч */
+    align-items: flex-start;
+}
+.layout-history .figma-img {
+    width: 261px;   /* Розміри з Figma для картинки історії */
+    height: 403px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.layout-history .figma-text {
+    flex-grow: 1;
+}
+
+/* 4. НОВИЙ МАКЕТ: Велике фото (Фото на всю ширину, текст знизу) */
+.layout-full-image .block-content-wrapper {
+    flex-direction: column; /* Елементи шикуються один під одним */
+    align-items: center;
+}
+.layout-full-image .figma-img {
+    width: 1024px;  /* Ваша ширина для Image 1 з Figma */
+    height: 559px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 40px; /* Відступ між великою картинкою та текстом під нею */
+}
+.layout-full-image .figma-text {
+    width: 1349px; /* Текст знизу розгортається на всю ширину */
+}
+.figma-text a {
+    color: #2976AB; /* Ваш фірмовий синій колір із кнопок тесту */
+    text-decoration: none; /* Прибираємо стандартне підкреслення */
+    font-weight: 700; /* Робимо посилання трохи жирнішим, щоб виділялося */
+    transition: 0.2s;
+}
+
+.figma-text a {
+    position: relative;
+    z-index: 10; /* Піднімає посилання над усіма прозорими блоками */
+    cursor: pointer !important; /* Примусово змушує курсор ставати "пальчиком" */
+    color: #2976AB;
+    text-decoration: underline;
+}
+/* Головний контейнер банера */
+.course-banner-container {
+    position: relative; /* Це потрібно, щоб позиціонування спрацювало */
+}
+
+.course-banner-container a {
+    position: relative;
+    z-index: 20; /* Ставимо вище за таймлайн */
+    display: inline-block;
+}
+
+/* Змійка */
+/* Це залишиться спільним для обох (розміри, рамки) */
+/* Базові стилі */
+.banner-mascot-img {
+    position: relative;
+    z-index: 9999; /* Щоб ніщо не перекривало клік */
+    cursor: pointer;
+}
+
+/* Змійка на банері (робимо великою) */
+/* Змійка на головному банері */
+.course-banner-container .banner-mascot-img {
+    width: 100% !important; /* Розтягнути на всю ширину банера */
+    max-width: 830px !important; /* Обмеження, щоб не була гігантською */
+    height: auto !important; /* Зберігає пропорції */
+}
+
+/* Контейнер змійки в модальному вікні */
+.modal-overlay .banner-mascot-wrapper {
+    position: absolute;
+    top: -185px; /* Чим більше значення (наприклад, -150px, -200px), тим вище вона піднімається */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+/* Сама картинка */
+.modal-overlay .banner-mascot-img {
+    width: 300px !important; /* Фіксована ширина */
+    height: auto !important;
+    display: block;
+}
+
+/* Зона шкали */
+.banner-timeline-zone {
+    position: relative;
+    z-index: 10; /* Таймлайн нижче за змію */
+}
+
+/* Сіра незаповнена лінія (капсула) */
+.timeline-track {
+    width: 100%;
+    height: 12px; /* Робимо її об'ємною як на макеті */
+    background: #e2e8f0; /* Колір пустої шкали */
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Зелена лінія прогресу */
+.timeline-progress {
+    height: 100%;
+    background: #52c41a; /* Той самий яскраво-зелений колір */
+    border-radius: 10px;
+    position: relative;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Круглий повзунок на кінці лінії */
+.timeline-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 3px solid #52c41a; /* Зелений обідок навколо повзунка */
+    border-radius: 50%;
+    position: absolute;
+    right: -10px; /* Центруємо відносно краю прогресу */
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Текстові підписи */
+.timeline-steps-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #a0aec0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Стиль для пройдених етапів */
+.timeline-steps-labels .current-active {
+    color: #4a5568; /* Темніший колір для активних кроків */
+}
+.progress-page-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Картка головного прогресу */
+.overall-progress-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* Робимо прогрес-бар окремим елементом без фонової картки */
+.global-progress-bar {
+    width: 100%;
+    height: 8px;             /* Робимо її тоншою та елегантнішою */
+    background: #e2e8f0;     /* Світло-сірий */
+    border-radius: 4px;      /* Заокруглення */
+    overflow: hidden;
+}
+
+/* Зелена заповнена частина */
+.global-progress-fill {
+    height: 100%;
+    background: #52c41a;     /* Чистий зелений */
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.progress-number-text {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Модулі */
+.module-progress-item {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #e2e8f0;
+}
+
+.module-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.mini-bar {
+    width: 100%;
+    height: 8px;
+    background: #edf2f7;
+    border-radius: 4px;
+}
+
+.mini-fill {
+    height: 100%;
+    background: #52c41a;
+    border-radius: 4px;
+}
+
+.locked-module {
+    background: #f7fafc;
+    opacity: 0.7;
+}
+
+/* Ачівки */
+.achievements-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.badge-card {
+    width: 160px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.badge-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.badge-card.locked img {
+    filter: grayscale(100%);
+}
+
+.badge-lock-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+}
+/* --- ІНТЕРАКТИВНИЙ БАНЕР ТЕСТУ --- */
+.course-banner-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    background: #f4f6f9;
+    border-radius: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+
+.banner-timeline-zone {
+    margin-top: 20px;
+    padding: 0 40px;
+}
+
+.timeline-track {
+    width: 100%;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    position: relative;
+}
+
+.timeline-progress {
+    height: 100%;
+    background: #52c41a;
+    border-radius: 10px;
+    position: relative;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 3px solid #52c41a;
+    border-radius: 50%;
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-labels-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #a0aec0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.timeline-labels-container .current-active {
+    color: #4a5568;
+}
+
+/* Додаткові стилі для кнопок дій у модалці */
+.modal-actions {
+    margin-top: 20px;
+}
+/* Переконуємося, що батьківська форма не ховає кнопку */
+/* Перевизначаємо стилі для кнопки всередині форми */
+/* Повністю скидаємо абсолютне позиціонування для цієї кнопки */
+/* Контейнер для вікна привітання */
+#celebration-view {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    width: 90%;
+    max-width: 500px;
+}
+
+#celebration-view h2 { color: #2b75a5; margin-bottom: 20px; }
+
+/* ВИПРАВЛЕННЯ КНОПКИ: тепер вона ніколи не буде зверху */
+/* Видали старе правило .next-btn повністю! */
+
+/* Новий, "слухняний" стиль */
+
+
+
+/* Це "вимикач", який приховує модалку до моменту завершення тесту */
+#successModal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 10000;
+}
+/* Скидаємо все, що примусово показує цю кнопку */
+/* ПЕРЕКРИВАЄМО ВСЕ, ЩО БУЛО РАНІШЕ */
+/* ОДИН ПРАВИЛЬНИЙ БЛОК ДЛЯ ВСЬОГО */
+/* 1. Повна очистка: прибираємо всі конфліктні класи для кнопки далі */
+/* Це все, що потрібно для стабільного відображення */
+/* Прив'язуємо контейнер кнопок до нижньої частини вікна, але без абсолюту */
+.footer-buttons-wrapper {
+    position: absolute !important;
+    bottom: 30px !important;
+    left: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+/* Кнопки тепер мають бути статичними відносно свого контейнера */
+.action-btn-submit, .next-btn {
+    position: static !important;
+    margin: 0 10px !important; /* Трохи відступу між ними */
+    width: 220px !important;
+    height: 45px !important;
+    cursor: pointer !important;
+}
+/* ПОВЕРТАЄМО ДИЗАЙН КНОПЦІ ДАЛІ */
+#next-question-btn.next-btn {
+    /* --- ПРАВИЛЬНЕ ПОЛОЖЕННЯ (НЕ ЗМІНЮВАТИ) --- */
+    position: static !important;
+    display: none !important; /* JS увімкне її */
+    margin: 20px auto !important;
+
+    /* --- ВІЗУАЛЬНИЙ ДИЗАЙН (ВАШ СТИЛЬ) --- */
+    width: 220px !important;
+    height: 45px !important;
+    background: #2b75a5 !important; /* Ваш фірмовий синій */
+    color: #ffffff !important;      /* Білий текст */
+
+    font-family: 'Maitree', serif !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+
+    border: none !important;
+    border-radius: 8px !important;  /* Закруглені кути */
+    cursor: pointer !important;
+
+    /* Ефект тіні для об'єму */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15) !important;
+    transition: background 0.3s, transform 0.2s !important;
+
+    /* Очищення зайвих відступів */
+    padding: 0 !important;
+    line-height: 45px !important; /* Центрування тексту по вертикалі */
+    text-align: center !important;
+}
+
+/* Ефект при наведенні мишкою */
+#next-question-btn.next-btn:hover {
+    background: #235d84 !important; /* Трохи темніший при наведенні */
+    transform: translateY(-2px) !important; /* Легке підстрибування */
+}
+.course-layout {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 250px;
+    border-right: 1px solid #e2e8f0;
+    padding-right: 20px;
+}
+
+.nav-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.nav-item.active {
+    background: #f0fff4;
+    border-left: 4px solid #52c41a;
+}
+
+.locked {
+    color: #a0aec0;
+    cursor: not-allowed;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.dictionary-page-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.dictionary-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.dictionary-main-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.dictionary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.dictionary-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    border-top: 4px solid #3498db;
+}
+
+.dictionary-card:hover {
+    transform: translateY(-5px);
+}
+
+.term-badge {
+    display: inline-block;
+    background: #e1f5fe;
+    color: #0288d1;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.term-word code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #e74c3c;
+}
+
+.term-definition {
+    color: #555;
+    line-height: 1.6;
+}
+.messages-container {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.alert-message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Стиль саме для помилки (червоний колір) */
+.alert-error {
+    background-color: #FFCDD2; /* Світло-червоний фон */
+    color: #B71C1C;            /* Темно-червоний текст */
+    border: 1px solid #EF9A9A;
+}
+
+/* Стиль для успішного входу (зелений колір, якщо захочете використати) */
+.alert-success {
+    background-color: #C8E6C9;
+    color: #1B5E20;
+    border: 1px solid #A5D6A7;
+}
+/* Базові стилі для мобільних (Mobile First) */
+.dictionary-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 колонка на мобільних */
+}
+
+/* Стилі для планшетів (від 768px і вище) */
+@media (min-width: 768px) {
+    .dictionary-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+    }
+}
+
+/* Стилі для десктопів (від 1024px і вище) */
+@media (min-width: 1024px) {
+    .dictionary-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    }
+}

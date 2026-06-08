@@ -1,0 +1,265 @@
+SQLite format 3
+uAcourses0002_lesson_author_text_lesson_history_text_and_more2026-06-01 13:47:03.414313L
+YAcourses0009_lessonblock_block_layout_and_more2026-06-01 13:34:46.933716i
+Acourses0008_remove_lesson_author_image_remove_lesson_author_text_and_more2026-06-01 13:34:46.916779R
+eAcourses0007_alter_quiz_option_g_alter_quiz_option_v2026-05-04 14:28:38.438821/
+Acourses0006_quiz2026-05-04 14:11:32.5412368
+1Acourses0005_lesson_course2026-04-29 14:35:05.019301=
+;Acourses0004_alter_term_options2026-04-29 14:17:33.467871/
+Acourses0003_term2026-04-29 14:16:19.457495b
+Acourses0002_alter_lesson_options_remove_course_created_at_and_more2026-04-29 13:44:05.4839333
+%Asessions0001_initial2026-04-23 14:39:53.9415412
+%Acourses0001_initial2026-04-23 14:39:53.927204H
+WAauth0012_alter_user_first_name_max_length2026-04-23 14:39:53.905824@
+GAauth0011_update_proxy_permissions2026-04-23 14:39:53.893950C
+MAauth0010_alter_group_name_max_length2026-04-23 14:39:53.884241G
+UAauth0009_alter_user_last_name_max_length2026-04-23 14:39:53.871356F
+SAauth0008_alter_user_username_max_length2026-04-23 14:39:53.860279K
+]Aauth0007_alter_validators_add_error_messages2026-04-23 14:39:53.848404A
+IAauth0006_require_contenttypes_00022026-04-23 14:39:53.830661B
+KAauth0005_alter_user_last_login_null2026-04-23 14:39:53.824553@	
+GAauth0004_alter_user_username_opts2026-04-23 14:39:53.810974C
+MAauth0003_alter_user_email_max_length2026-04-23 14:39:53.799642H
+WAauth0002_alter_permission_name_max_length2026-04-23 14:39:53.786731H
+%GAcontenttypes0002_remove_content_type_name2026-04-23 14:39:53.774045I
+WAadmin0003_logentry_add_action_flag_choices2026-04-23 14:39:53.756651A
+GAadmin0002_logentry_remove_auto_add2026-04-23 14:39:53.7291430
+%Aadmin0001_initial2026-04-23 14:39:53.716388/
+%Aauth0001_initial2026-04-23 14:39:53.6997397
+%%Acontenttypes0001_initial2026-04-23 14:39:53.676010
+auth_user
+courses_lessonblock
+django_admin_log
+)	courses_course
+auth_permission4
+auth_group
+)	courses_lesson
+django_content_type
+courses_quiz
+django_migrations
+courseslessonblock
+coursesdictionaryterm
+coursesquiz
+coursesterm
+coursesuserprogress	
+courseslesson
+coursescourse
+sessionssession
+contenttypescontenttype
+authuser
+authpermission
+authgroup
+	adminlogentry
+view_lessonblockCan view 
+delete_lessonblockCan delete 
+change_lessonblockCan change 
+add_lessonblockCan add 
+view_dictionarytermCan view 
+delete_dictionarytermCan delete 
+change_dictionarytermCan change 
+add_dictionarytermCan add 
+view_quizCan view quiz +
+delete_quizCan delete quiz *
+change_quizCan change quiz
+add_quizCan add quiz
+view_termCan view term '
+delete_termCan delete term &
+change_termCan change term
+add_termCan add term-$
+/9	view_userprogressCan view user progress1#
+3=	delete_userprogressCan delete user progress1"
+3=	change_userprogressCan change user progress+!
+-7	add_userprogressCan add user progress  
+view_lessonCan view lesson$
+delete_lessonCan delete lesson$
+change_lessonCan change lesson
+add_lessonCan add lesson 
+view_courseCan view course$
+delete_courseCan delete course$
+change_courseCan change course
+add_courseCan add course"
+view_sessionCan view session&
+delete_sessionCan delete session&
+change_sessionCan change session 
+add_sessionCan add session+
+view_contenttypeCan view content type/
+delete_contenttypeCan delete content type/
+change_contenttypeCan change content type)
+add_contenttypeCan add content type
+view_userCan view user 
+delete_userCan delete user 
+change_userCan change user
+add_userCan add user
+view_groupCan view group"
+delete_groupCan delete group"
+change_groupCan change group
+add_groupCan add group(
+view_permissionCan view permission,
+delete_permissionCan delete permission,
+change_permissionCan change permission&
+add_permissionCan add permission$
+	'1view_logentryCan view log entry(
+	+5delete_logentryCan delete log entry(
+	+5change_logentryCan change log entry"
+	%/add_logentryCan add log entry
+view_lessonblock4
+delete_lessonblock3
+change_lessonblock2
+add_lessonblock1
+view_dictionaryterm0
+delete_dictionaryterm/
+change_dictionaryterm.
+add_dictionaryterm-
+view_quiz,
+delete_quiz+
+change_quiz*
+add_quiz)
+view_term(
+delete_term'
+change_term&
+add_term%
+	view_userprogress$
+	delete_userprogress#
+	change_userprogress"
+	add_userprogress!
+view_lesson 
+delete_lesson
+change_lesson
+add_lesson
+view_course
+delete_course
+change_course
+add_course
+view_session
+delete_session
+change_session
+add_session
+view_contenttype
+delete_contenttype
+change_contenttype
+add_contenttype
+view_user
+delete_user
+change_user
+add_user
+view_group
+delete_group
+change_group
+add_group	
+view_permission
+delete_permission
+change_permission
+add_permission
+view_logentry
+delete_logentry
+change_logentry
+	%	add_logentry
+?		A
+pbkdf2_sha256$1200000$vayQ4w7nrg3m7t0dAhZ1pZ$52SQr+B/54702Ndr681lSpBpII0i1RgBTs83RIaTEqo=2026-06-01 16:32:43.333672adminilavskaanhelina@gmail.com2026-06-01 16:32:15.715347
+?		A
+pbkdf2_sha256$1200000$TLNRvd4lILrmoirdDqRdRe$hJCFqQ1rbl4bT6diubk4upvgZ/uWTk6KFoSHU6XoG+A=2026-05-03 11:26:22.272173Adminilavskaanhelina@gmail.com2026-04-29 14:28:17.651875
+admin
+	Admin
+ Python
+ Python 
+7	I	
+lessons/image_1_1.png
+ Python
+qindexauth_user_user_permissions_permission_id_1fbb5f2cauth_user_user_permissions
+CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "auth_user_user_permissions" ("permission_id")
+sindexauth_user_groups_user_id_group_id_94350c0c_uniqauth_user_groups
+CREATE UNIQUE INDEX "auth_user_groups_user_id_group_id_94350c0c_uniq" ON "auth_user_groups" ("user_id", "group_id")
+aindexauth_group_permissions_permission_id_84c5c92eauth_group_permissions
+CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id")
+Mindexauth_group_permissions_group_id_b120cbf9auth_group_permissions
+CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id")
+tableauth_user_groupsauth_user_groups
+CREATE TABLE "auth_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED)
+/indexauth_user_user_permissions_user_id_permission_id_14a6b632_uniqauth_user_user_permissions
+CREATE UNIQUE INDEX "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" ON "auth_user_user_permissions" ("user_id", "permission_id")
+5indexauth_user_groups_group_id_97559544auth_user_groups
+CREATE INDEX "auth_user_groups_group_id_97559544" ON "auth_user_groups" ("group_id")
+7tableauth_group_permissionsauth_group_permissions	CREATE TABLE "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED)
+Yindexauth_user_user_permissions_user_id_a95ead1bauth_user_user_permissions
+CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "auth_user_user_permissions" ("user_id")
+1indexauth_user_groups_user_id_6a12ed8bauth_user_groups
+CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "auth_user_groups" ("user_id")
+#indexauth_group_permissions_group_id_permission_id_0cd325b0_uniqauth_group_permissions
+CREATE UNIQUE INDEX "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" ON "auth_group_permissions" ("group_id", "permission_id")
+;tableauth_user_user_permissionsauth_user_user_permissions
+CREATE TABLE "auth_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED)P
+Ytablesqlite_sequencesqlite_sequence
+CREATE TABLE sqlite_sequence(name,seq)
+atabledjango_migrationsdjango_migrations
+CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL)
+1indexdjango_admin_log_user_id_c564eba6django_admin_log
+CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id")
+'tabledjango_sessiondjango_session$CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL)
+Qindexdjango_admin_log_content_type_id_c4bce8ebdjango_admin_log
+CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id")
+/tabledjango_admin_logdjango_admin_log
+CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "action_time" datetime NOT NULL)
+#tablecourses_coursecourses_course
+CREATE TABLE "courses_course" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "description" text NOT NULL)1.
+indexsqlite_autoindex_auth_user_1auth_user
+#tableauth_userauth_user
+CREATE TABLE "auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "username" varchar(150) NOT NULL UNIQUE, "last_name" varchar(150) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "first_name" varchar(150) NOT NULL)3,
+indexsqlite_autoindex_auth_group_1auth_group
+mtableauth_groupauth_group
+CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(150) NOT NULL UNIQUE)
+Mindexauth_permission_content_type_id_2f476e4bauth_permission
+CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id")
+indexauth_permission_content_type_id_codename_01ab375a_uniqauth_permission
+CREATE UNIQUE INDEX "auth_permission_content_type_id_codename_01ab375a_uniq" ON "auth_permission" ("content_type_id", "codename")
+tableauth_permissionauth_permission
+CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "codename" varchar(100) NOT NULL, "name" varchar(255) NOT NULL)
+{indexdjango_content_type_app_label_model_76bd3d3b_uniqdjango_content_type
+CREATE UNIQUE INDEX "django_content_type_app_label_model_76bd3d3b_uniq" ON "django_content_type" ("app_label", "model")
+9tabledjango_content_typedjango_content_type
+CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL)
+#courseslessonblock
+)coursesdictionaryterm
+coursesquiz
+coursesterm
+%coursesuserprogress
+courseslesson
+coursescourse
+sessionssession
+%#contenttypescontenttype
+authuser
+!authpermission
+authgroup
+adminlogentry
+ 1: 
+ Python 
+...[{"added": {}}]
+2026-05-04 14:52:03.309152a
+ Python[{"added": {}}]
+2026-05-04 14:18:07.586716E
+	A1Lesson object (1)[{"added": {}}]
+2026-04-29 14:39:47.516740G
+ Python[{"added": {}}]
+2026-04-29 14:33:49.465673
+SAe8a0211xufk5ed5egxxj9hl58p0y08of.eJxVjEEOwiAQRe_C2hA6bRlw6b5nIAMDUjWQlHZlvLtt0oVu33v_v4Wjbc1ua3FxM4urAHH5ZZ7CM5ZD8IPKvcpQy7rMXh6JPG2TU-X4up3t30Gmlve1VTakbvCaMOkuKYNoTPTa95oHtsA7RKM4RgJAsGPAhDaARhptgl58vt4gN5w:1wU5ZD:wxd8qvEa-Tj-of-gtWd0VXa0vLKsaqAvULt3MYjounY2026-06-15 16:32:43.339339
+UAndwomk2e687txaetyg2cpgxq5zfwbp8o.eJxVjMEKwyAQRP_Fc5HouqI99t5vkHXVmrYYiMkp9N-bQA4tzGnem9lEoHWpYe15DmMSV6HE5beLxK_cDpCe1B6T5Kkt8xjlociTdnmfUn7fTvfvoFKv-5qsLdpZBQiF95CJzhOxAibvjY7oAYxFQBcNoGJ2cRgQldJO--LF5wvUrDbi:1wJUxq:w7_afMbvG5WnL-knIW-I9JP8YrLaK1KcA4BVxKfikvU2026-05-17 11:26:22.278061
+UA4k44v9clr34yx3o3a04w8qgbp6cwx2l1.eJxVjMEKwyAQRP_Fc5HouqI99t5vkHXVmrYYiMkp9N-bQA4tzGnem9lEoHWpYe15DmMSV6HE5beLxK_cDpCe1B6T5Kkt8xjlociTdnmfUn7fTvfvoFKv-5qsLdpZBQiF95CJzhOxAibvjY7oAYxFQBcNoGJ2cRgQldJO--LF5wvUrDbi:1wI5uF:ZWSD6BzwNCgqZ40J6Vmrk2_bEuSiFMrKlni-KgiQtk42026-05-13 14:28:51.527961
+e8a0211xufk5ed5egxxj9hl58p0y08of
+ndwomk2e687txaetyg2cpgxq5zfwbp8o
+M	4k44v9clr34yx3o3a04w8qgbp6cwx2l1
+2026-06-15 16:32:43.339339
+2026-05-17 11:26:22.278061
+A	2026-05-13 14:28:51.527961
+ Python 
+?a) 
+GaQO
+ Python?
+%tablecourses_lessoncourses_lesson
+CREATE TABLE "courses_lesson" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "intro_image" varchar(100) NULL, "number" integer unsigned NOT NULL CHECK ("number" >= 0), "title" varchar(250) NOT NULL, "course_id" bigint NULL REFERENCES "courses_course" ("id") DEFERRABLE INITIALLY DEFERRED, main_image varchar(100) NULL, "author_text" text NULL, "history_text" text NULL, "intro_text" text NULL)
+otablecourses_lessonblockcourses_lessonblock*CREATE TABLE "courses_lessonblock" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "block_title" varchar(250) NOT NULL, "block_text" text NOT NULL, "block_image" varchar(100) NULL, "order" integer unsigned NOT NULL CHECK ("order" >= 0), "lesson_id" bigint NOT NULL REFERENCES "courses_lesson" ("id") DEFERRABLE INITIALLY DEFERRED, "block_layout" varchar(50) NOT NULL)
+)indexcourses_quiz_lesson_id_2bf49392courses_quiz!CREATE INDEX "courses_quiz_lesson_id_2bf49392" ON "courses_quiz" ("lesson_id")
+stablecourses_quizcourses_quiz'CREATE TABLE "courses_quiz" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "question" varchar(255) NOT NULL, "option_a" varchar(100) NOT NULL, "option_b" varchar(100) NOT NULL, "option_g" varchar(100) NULL, "correct_option" varchar(1) NOT NULL, "lesson_id" bigint NOT NULL REFERENCES "courses_lesson" ("id") DEFERRABLE INITIALLY DEFERRED, "option_v" varchar(100) NULL)
+1indexcourses_lesson_course_id_16bc4882courses_lesson"CREATE INDEX "courses_lesson_course_id_16bc4882" ON "courses_lesson" ("course_id")
+tablecourses_termcourses_term CREATE TABLE "courses_term" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "word" varchar(100) NOT NULL, "definition" text NOT NULL)
+Eindexcourses_lessonblock_lesson_id_69d27ed6courses_lessonblock#CREATE INDEX "courses_lessonblock_lesson_id_69d27ed6" ON "courses_lessonblock" ("lesson_id")
+9indexdjango_session_expire_date_a5c62663django_session&CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date");6
+indexsqlite_autoindex_django_session_1django_session%

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}PyAcademy — Головна{% endblock %}
+
+{% block content %}
+<section class="hero-banner">
+    <h1>Ласкаво просимо до PyAcademy!</h1>
+    <p>Твій шлях у світ програмування починається тут.</p>
+</section>
+
+<div class="courses-container">
+    <div class="course-card">
+        <div class="image-wrapper">
+            <img src="{% static 'images/osnovi_python.png' %}" alt="Основи Python">
+        </div>
+        <a href="{% url 'lesson_detail' lesson_number=1 %}" class="btn-start">Розпочати</a>
+    </div>
+
+    <div class="course-card">
+        <div class="image-wrapper">
+            <img src="{% static 'images/oop.png' %}" alt="ООП">
+        </div>
+        <a href="#" class="btn-start">Розпочати</a>
+    </div>
+
+    <div class="course-card">
+        <div class="image-wrapper">
+            <img src="{% static 'images/pygame.png' %}" alt="Pygame">
+        </div>
+        <a href="#" class="btn-start">Розпочати</a>
+    </div>
+</div>
+{% endblock %}

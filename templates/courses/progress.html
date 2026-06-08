@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}PyAcademy — Твій прогрес{% endblock %}
+
+{% block content %}
+<div class="progress-page-container">
+
+    <section class="overall-progress-card">
+        <div class="progress-info">
+            <h1>Твій рівень: Юний Пайтоніст 🐍</h1>
+            <p>Ти пройшов(ла) <strong>{{ completed_lessons_count }}</strong> з <strong>{{ total_lessons_count }}</strong> уроків</p>
+        </div>
+
+        <div class="global-progress-bar">
+            <div class="global-progress-fill" style="width: {{ global_percentage }}%;">
+                <span class="progress-number-text">{{ global_percentage }}%</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules-progress-section">
+        <h2>Проходження тем</h2>
+
+        <div class="modules-list">
+    {% for lesson in all_lessons %}
+        <div class="module-progress-item {% if lesson.id not in completed_lesson_ids and forloop.counter > completed_lessons_count|add:1 %}locked-module{% endif %}">
+            <div class="module-meta">
+                <h3>Урок {{ lesson.number }}. {{ lesson.title }}</h3>
+
+                <span class="module-status">
+                    {% if lesson.id in completed_lesson_ids %}
+                        ✅ Виконано
+                    {% elif forloop.counter == completed_lessons_count|add:1 %}
+                        ⚡ Доступно для проходження
+                    {% else %}
+                        🔒 Заблоковано
+                    {% endif %}
+                </span>
+            </div>
+            <div class="mini-bar">
+                <div class="mini-fill" style="width: {% if lesson.id in completed_lesson_ids %}100%{% else %}0%{% endif %};"></div>
+            </div>
+        </div>
+    {% empty %}
+        <p>Уроки ще не додані в систему.</p>
+    {% endfor %}
+</div>
+    </section>
+
+    <section class="achievements-section">
+        <h2>Твої нагороди (Ачівки)</h2>
+        <div class="achievements-grid">
+
+            <div class="badge-card unlocked">
+                <img src="{% static 'images/badge_first_step.png' %}" alt="Перший крок">
+                <h4>Перший крок</h4>
+                <p>Пройдено 1-й урок</p>
+            </div>
+
+            <div class="badge-card unlocked">
+                <img src="{% static 'images/badge_test_master.png' %}" alt="Майстер тестів">
+                <h4>Майстер тестів</h4>
+                <p>Складено тест без помилок</p>
+            </div>
+
+            <div class="badge-card locked">
+                <div class="badge-lock-overlay">🔒</div>
+                <img src="{% static 'images/badge_oop_king.png' %}" alt="Король ООП">
+                <h4>Король ООП</h4>
+                <p>Заверши модуль ООП</p>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+{% endblock %}

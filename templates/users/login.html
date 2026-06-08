@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}PyAcademy — Вхід{% endblock %}
+
+{% block content %}
+<div class="auth-container" style="max-width: 400px; margin: 60px auto; padding: 30px; background: white; border: 2px solid #e2e8f0; border-radius: 16px; font-family: 'Inter', sans-serif;">
+    <h2 style="text-align: center; margin-bottom: 20px; color: #1a202c;">Вхід до акаунту 🐍</h2>
+
+    {% if messages %}
+        <div style="margin-bottom: 15px;">
+            {% for message in messages %}
+                <div style="padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 500; background-color: #fff1f0; color: #cf1322; border: 1px solid #ffa39e; text-align: left;">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #4a5568;">Електронна адреса:</label>
+            <input type="email" name="username" placeholder="example@email.com" required style="width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 8px; box-sizing: border-box;">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #4a5568;">Пароль:</label>
+            <input type="password" name="password" required style="width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 8px; box-sizing: border-box;">
+        </div>
+        <button type="submit" style="width: 100%; padding: 12px; background: #52c41a; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Увійти</button>
+    </form>
+</div>
+
+    <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #718096;">
+        Ще немає акаунту? <a href="{% url 'register' %}" style="color: #52c41a; font-weight: bold; text-decoration: none;">Зареєструватися</a>
+    </p>
+</div>
+{% endblock %}
