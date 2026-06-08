@@ -1411,3 +1411,193 @@ xt-btn-final {
         grid-template-columns: repeat(3, 1fr); /* 3 колонки */
     }
 }
+/* ==========================================================================
+   📱 ПОВНА АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (IPHONE 12 ТА ІНШІ)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    /* Навігація */
+    .top-bar {
+        padding: 15px 3%;
+    }
+
+    /* Каталог курсів: замість 3 фіксованих стовпчиків робимо гнучку сітку */
+    .courses-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* Блоки занять Figma */
+    .figma-canvas {
+        width: 100%;
+        padding: 60px 0;
+        gap: 40px;
+    }
+    .lesson-block {
+        width: 100% !important;
+        padding: 0 20px;
+    }
+    .block-content-wrapper {
+        gap: 25px;
+    }
+    .layout-author .block-content-wrapper,
+    .layout-history .block-content-wrapper {
+        flex-direction: column !important; /* На планшетах фото й текст стають один під одним */
+        align-items: center;
+    }
+    .layout-full-image .figma-img {
+        width: 100%;
+        height: auto;
+    }
+    .layout-full-image .figma-text {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Перебудова шапки: логотип по центру, кнопки під ним */
+    .top-bar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .nav-buttons {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Сторінка уроку */
+    .lesson-navbar {
+        height: auto;
+        padding: 10px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .lesson-title {
+        font-size: 30px;
+        margin: 25px 0;
+    }
+    .lesson-text, .lesson-content {
+        font-size: 18px !important; /* Робимо текст зручним для читання на телефоні */
+        line-height: 1.6 !important;
+    }
+    .lesson-flex-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .lesson-side-img {
+        max-width: 120px;
+        margin-bottom: 15px;
+    }
+
+    /* Інтерактивний банер */
+    .course-banner-container .banner-mascot-img {
+        max-width: 100% !important;
+    }
+    .banner-timeline-zone {
+        padding: 0 15px;
+    }
+
+    /* Сторінка прогресу */
+    .achievements-grid {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Повне пригнічення горизонтального скролу */
+    body, html {
+        overflow-x: hidden;
+    }
+
+    /* Картки курсів */
+    .course-card {
+        height: auto;
+        min-height: 450px;
+    }
+    .image-wrapper {
+        height: 180px;
+    }
+
+    /* 🧱 АДАПТАЦІЯ МОДАЛЬНИХ ВІКОН ТЕСТУ (Твоя Figma-плашка 730px) */
+    .test-container,
+    .quiz-frame,
+    .test-window,
+    .success-window,
+    #successModal .success-frame {
+        width: 92vw !important; /* Вікно займає 92% ширини екрану смартфона */
+        height: auto !important; /* Висота підлаштовується під вміст */
+        min-height: 480px;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        padding: 30px 15px 80px 15px !important; /* Місце під фіксовані кнопки */
+    }
+
+    /* Скидаємо absolute-позиціонування елементів всередині тесту, щоб вони не наповзали */
+    .quiz-title, .test-header, .success-message, .question-text, .question-title {
+        position: static !important;
+        width: 100% !important;
+        margin-bottom: 20px !important;
+    }
+
+    .quiz-title, .test-header {
+        font-size: 22px !important;
+    }
+    .question-text, .question-title {
+        font-size: 18px !important;
+    }
+
+    /* Перебудова кнопок варіантів відповідей у зручний вертикальний список */
+    .option-rect, .option-btn {
+        position: static !important; /* Скасовуємо точні координати left/top з Figma */
+        width: 100% !important;     /* Кнопки стають на всю ширину екрану */
+        height: 45px !important;
+        margin-bottom: 12px !important;
+        font-size: 14px !important;
+        padding: 5px 10px !important;
+    }
+
+    /* Фіксований підвал для кнопок дії внизу модалки */
+    .footer-buttons-wrapper {
+        position: absolute !important;
+        bottom: 20px !important;
+        left: 0 !important;
+        width: 100% !important;
+        padding: 0 15px !important;
+    }
+    .action-btn-submit, #next-question-btn.next-btn, .btn-next-lesson {
+        width: 100% !important; /* Кнопки "Відповісти" / "Далі" стають великими та зручними для пальця */
+        margin: 0 !important;
+    }
+
+    /* 🐍 Адаптація талісмана-змійки над вікном */
+    .snake-mascot, .snake-container {
+        width: 160px !important;
+        height: 160px !important;
+        top: -110px !important; /* Коректуємо виліт, щоб вона акуратно виглядала на маленькому екрані */
+    }
+    #successModal .snake-mascot {
+        top: -70px !important;
+        margin-bottom: 0px !important;
+    }
+    #successModal .snake-mascot img {
+        height: 120px !important;
+    }
+
+    /* Шкала прогресу на екрані успіху */
+    #successModal .progress-container {
+        width: 100% !important;
+        max-width: 260px !important;
+        margin: 20px auto !important;
+    }
+
+    /* Ховаємо дрібний декор (іконки дужок, тегів), щоб не захаращувати екран телефону */
+    .fig-icon, .icon {
+        display: none !important;
+    }
+}
