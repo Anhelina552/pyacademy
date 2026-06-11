@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}PyAcademy — Курс у розробці{% endblock %}
+
+{% block content %}
+<div class="development-wrapper" style="text-align: center; padding: 100px 20px; font-family: 'Inter', sans-serif;">
+    <div class="development-card" style="max-width: 500px; margin: 0 auto; background: #FFFFFF; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+
+        <div class="dev-img-wrapper" style="margin-bottom: 30px;">
+            <img src="{% static 'images/snake_mascot.png' %}" alt="PyAcademy Mascot" style="max-width: 150px; height: auto;">
+        </div>
+
+        <h1 style="color: #1E293B; font-size: 28px; margin-bottom: 15px; font-weight: 700;">Курс у розробці 👨‍💻</h1>
+        <p style="color: #64748B; font-size: 16px; line-height: 1.6; margin-bottom: 30px;">
+            Ми вже активно пишемо код та готуємо найкращі практичні завдання для цього курсу. Завітайте сюди трохи пізніше!
+        </p>
+
+        <a href="/" class="btn-back-home" style="display: inline-block; background: #4F46E5; color: #FFFFFF; padding: 12px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; transition: background 0.2s;">
+            Повернутися на головну
+        </a>
+    </div>
+</div>
+{% endblock %}

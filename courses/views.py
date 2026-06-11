@@ -9,14 +9,32 @@ from .models import Lesson, Quiz, UserProgress, DictionaryTerm, Profile
 def home(request):
     return render(request, 'courses/home.html')
 
-@login_required(login_url='/auth/login/')  # ЗМІНЕНО ТУТ: додали /auth/
-def lesson_detail(request, lesson_number):
-    lesson = get_object_or_404(Lesson, number=lesson_number)
 
-    # 1. ПЕРЕВІРКА ДОСТУПУ (якщо це не перший урок)
+import json
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Lesson, Quiz, UserProgress, Course  # перевір свої імпорти моделей
+
+
+@login_required(login_url='/auth/login/')
+def lesson_detail(request, lesson_number):
+    # 1. ПЕРЕВІРКА НАЯВНОСТІ УРОКУ В БАЗІ
+    # Шукаємо урок, якщо його взагалі немає в системі з таким номером
+    lesson = Lesson.objects.filter(number=lesson_number).first()
+
+    if not lesson:
+        # Якщо уроку з таким номером немає, перевіримо, чи це спроба відкрити пустий курс
+        # (Або якщо хочеш підстрахуватися, просто рендеримо сторінку розробки)
+        return render(request, 'courses/course_under_development.html')
+
+    # 2. ПЕРЕВІРКА КІЛЬКОСТІ УРОКІВ У ЦЬОМУ КУРСІ
+    # Якщо курс існує, але в ньому випадково виявилося 0 уроків (на майбутнє)
+    if lesson.course.lessons.count() == 0:
+        return render(request, 'courses/course_under_development.html')
+
+    # 3. ПЕРЕВІРКА ДОСТУПУ (якщо це не перший урок) — Твій оригінальний код
     if lesson.number > 1:
         prev_lesson_number = lesson.number - 1
-        # Чи є запис про те, що попередній урок пройдено?
         has_access = UserProgress.objects.filter(
             user=request.user,
             lesson__number=prev_lesson_number,
@@ -24,16 +42,15 @@ def lesson_detail(request, lesson_number):
         ).exists()
 
         if not has_access:
-            # Перенаправляємо на попередній урок, якщо цей ще заблоковано
             return redirect('lesson_detail', lesson_number=prev_lesson_number)
 
-    # 2. Дані для тестів
+    # 4. Дані для тестів
     quizzes = Quiz.objects.filter(lesson=lesson).values(
         'question', 'option_a', 'option_b', 'option_v', 'option_g', 'correct_option'
     )
     quizzes_json = json.dumps(list(quizzes), ensure_ascii=False)
 
-    # 3. Дані для навігації
+    # 5. Дані для навігації
     all_lessons = Lesson.objects.filter(course=lesson.course).order_by('number')
     completed_ids = UserProgress.objects.filter(
         user=request.user,
@@ -47,12 +64,11 @@ def lesson_detail(request, lesson_number):
 
     return render(request, 'courses/lesson.html', {
         'lesson': lesson,
-        'all_lessons': all_lessons,  # Для відображення меню
-        'completed_ids': completed_ids,  # Для перевірки "замків" у шаблоні
+        'all_lessons': all_lessons,
+        'completed_ids': completed_ids,
         'quizzes_json': quizzes_json,
         'next_lesson': next_lesson,
     })
-
 @login_required(login_url='/auth/login/')  # Якщо не авторизований — перекине на вхід
 def user_progress(request):
     # 1. Рахуємо загальну кількість уроків у системі
@@ -112,18 +128,26 @@ def dictionary_view(request):
 
 
 def lesson_view(request, lesson_id):
-    # Логіка отримання уроків
-    total_lessons = Lesson.objects.count()
-    current_lesson = Lesson.objects.get(id=lesson_id)
+    # Використовуємо get_object_or_404, щоб сайт не «падав» з помилкою 500, якщо ID не існує
+    current_lesson = get_object_or_404(Lesson, id=lesson_id)
 
-    # Розрахунок відсотків
-    progress_percentage = (current_lesson.number / total_lessons) * 100
+    # Отримуємо курс, до якого належить цей урок
+    current_course = current_lesson.course
+
+    # Рахуємо кількість уроків ТІЛЬКИ для цього конкретного курсу
+    total_lessons = Lesson.objects.filter(course=current_course).count()
+
+    # Якщо уроків у курсі чомусь немає (захист від ділення на нуль)
+    if total_lessons > 0:
+        progress_percentage = (current_lesson.number / total_lessons) * 100
+    else:
+        progress_percentage = 0
 
     return render(request, 'lesson.html', {
         'lesson': current_lesson,
         'lesson_number': current_lesson.number,
         'total_lessons': total_lessons,
-        'progress_percentage': progress_percentage
+        'progress_percentage': int(progress_percentage)  # Перетворюємо в ціле число, щоб у CSS не було довгих дробів типу 33.3333%
     })
 
 
@@ -165,3 +189,5 @@ def complete_lesson(request, lesson_number):
         return redirect('lesson_detail', lesson_number=next_lesson.number)
     else:
         return redirect('home')
+def course_development_view(request):
+    return render(request, 'courses/course_under_development.html')

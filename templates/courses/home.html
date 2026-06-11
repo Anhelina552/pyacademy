@@ -21,14 +21,14 @@
         <div class="image-wrapper">
             <img src="{% static 'images/oop.png' %}" alt="ООП">
         </div>
-        <a href="#" class="btn-start">Розпочати</a>
+        <a href="{% url 'course_development' %}" class="btn-start">Розпочати</a>
     </div>
 
     <div class="course-card">
         <div class="image-wrapper">
             <img src="{% static 'images/pygame.png' %}" alt="Pygame">
         </div>
-        <a href="#" class="btn-start">Розпочати</a>
+        <a href="{% url 'course_development' %}" class="btn-start">Розпочати</a>
     </div>
 </div>
 {% endblock %}
